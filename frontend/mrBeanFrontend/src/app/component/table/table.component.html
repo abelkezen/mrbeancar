@@ -1,0 +1,94 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Mr Bean's Car Inventory</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" (click)="getdata()">All Cars <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+            <a style="cursor: pointer;" class="nav-link" (click)="openDialog('add','i')">Add Car</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+<div style="text-align: center;padding: 10px;">
+    <h1 style="text-align: center;">All cars</h1>
+    <div style="text-align: right;">
+    <mat-form-field style="width:25%">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+    </mat-form-field></div>
+    <br>
+    <div style="text-align: right;">
+      <mat-form-field style="width:25%">
+        <input matInput [(ngModel)]="max" placeholder="Max Price" type="number">
+      </mat-form-field>
+      <mat-form-field style="width:25%">
+        <input matInput [(ngModel)]="min" placeholder="Min Price" type="number">
+      </mat-form-field>
+        <button mat-raised-button color="primary"  (click)="performAction()">Filter</button>
+    </div>
+    <div  style="text-align: center;padding: 10px;;" class="example-container " >
+
+    <mat-table [dataSource]="table_data" class="mat-elevation-z8" style="padding: 20px">
+    
+   <ng-container matColumnDef="company">
+        <mat-header-cell *matHeaderCellDef style="text-align: center;white-space: nowrap;padding-left: 1px;padding-right: 1px;"><b> Company </b></mat-header-cell>
+        <mat-cell *matCellDef="let cars" style="text-align: center;white-space: nowrap;padding-left: 1px;padding-right: 1px;"> {{cars.company}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="model">
+        <mat-header-cell *matHeaderCellDef style="text-align: center;white-space: nowrap;padding-left: 1px;padding-right: 1px;"> <b> Model </b></mat-header-cell>
+        <mat-cell *matCellDef="let cars" style="text-align: center;white-space: nowrap;padding-left: 1px;padding-right: 1px;">{{cars.model}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="color">
+        <mat-header-cell *matHeaderCellDef style="text-align: center;white-space: nowrap;padding-left: 1px;padding-right: 1px;"><b>Color </b></mat-header-cell>
+        <mat-cell *matCellDef="let cars" style="text-align: center;white-space: nowrap;padding-left: 1px;padding-right: 1px;">{{cars.color}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="dateofpurchase">
+        <mat-header-cell *matHeaderCellDef style="text-align: center;white-space: nowrap;padding-left: 1px;padding-right: 1px;"><b>DOP </b></mat-header-cell>
+        <mat-cell *matCellDef="let cars" style="text-align: center;white-space: nowrap;padding-left: 1px;padding-right: 1px;">{{cars.date}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef style="text-align: center;white-space: nowrap;padding-left: 1px;padding-right: 1px;"><b> Price </b></mat-header-cell>
+        <mat-cell *matCellDef="let cars" style="text-align: center;white-space: nowrap;padding-left: 1px;padding-right: 1px;">{{cars.price}} </mat-cell>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="enginecapacity">
+        <mat-header-cell *matHeaderCellDef style="text-align: center;white-space: nowrap;padding-left: 1px;padding-right: 1px;"> <b> Engine Capacity </b></mat-header-cell>
+        <mat-cell *matCellDef="let cars" style="text-align: center;white-space: nowrap;padding-left: 1px;padding-right: 1px;">{{cars.engine}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="licenseplateno">
+        <mat-header-cell *matHeaderCellDef style="text-align: center;white-space: nowrap;padding-left: 1px;padding-right: 1px;"> <b> Registration No. </b></mat-header-cell>
+        <mat-cell *matCellDef="let cars" style="text-align: center;white-space: nowrap;padding-left: 1px;padding-right: 1px;"> {{cars.regno}} </mat-cell>
+      </ng-container>
+    
+    
+      <!-- Weight Column -->
+      <ng-container matColumnDef="seatingcapacity">
+        <mat-header-cell *matHeaderCellDef style="text-align: center;white-space: nowrap;padding-left: 1px;padding-right: 1px;"> <b> Seating Capacity </b></mat-header-cell>
+        <mat-cell *matCellDef="let cars" style="text-align: center;white-space: nowrap;padding-left: 1px;padding-right: 1px;"> {{cars.seats}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Button" >
+        <mat-header-cell *matHeaderCellDef style="text-align: center;white-space: nowrap;padding-left: 1px;padding-right: 1px;"> <b> </b></mat-header-cell>
+        <mat-cell *matCellDef="let cars;let i=index" style="text-align: center;white-space: nowrap;padding-left: 1px;padding-right: 1px;"> <button (click)="openDialog('update',i)"> Edit</button> &nbsp;<button (click)="delete(cars.uid)"> Delete</button></mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+
+
+    <mat-paginator #envPaginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+    </div>
+

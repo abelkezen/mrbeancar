@@ -1,0 +1,58 @@
+<h1 mat-dialog-title>Edit Car</h1>
+
+<div mat-dialog-content>
+
+    <mat-form-field>
+        <mat-label>Company</mat-label>
+        <input matInput [(ngModel)]="data.company">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+        <mat-label>Model</mat-label>
+        <input matInput [(ngModel)]="data.model">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+        <mat-label>Color</mat-label>
+        <input matInput [(ngModel)]="data.color">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+        <mat-label>Price</mat-label>
+        <input matInput [(ngModel)]="data.price" type="number">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+        <mat-label>Engine Capacity</mat-label>
+        <input matInput [(ngModel)]="data.engine">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+        <mat-label>Reg. No</mat-label>
+        <input matInput [(ngModel)]="data.regno">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+        <mat-label>Seating Capacity</mat-label>
+        <input matInput [(ngModel)]="data.seats" type="number">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+        <mat-label>Date of Purchase</mat-label>
+        <input matInput [(ngModel)]="data.dop" type="date">
+    </mat-form-field>
+
+    
+
+</div>
+
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary"  (click)="performAction()">{{data.type}}</button>
+</div>

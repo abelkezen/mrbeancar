@@ -1,0 +1,15 @@
+create table cars
+(
+  serialid   SERIAL,
+  Company           VARCHAR not null,
+  dop  BIGINT,
+  Price  BIGINT,
+  seats  BIGINT,
+  regno         VARCHAR not null,
+  Model         VARCHAR not null,
+  Color     VARCHAR not null,
+  Engine     VARCHAR not null,
+  uid VARCHAR not null
+) ;
+
+

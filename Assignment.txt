@@ -1,0 +1,37 @@
+Mr. Bean is passionate about cars. Every month he buys one to keep his collection of cars updated. By now, he has bought so many cars, it is difficult for him to remember how many cars he has, which one was boought when and other details. So he is looking for a simple web application which he can use to maintain his car list. 
+		Build a web application so that Mr. Bean can add the details of all his existing cars in it and whenever needed he can refer to see his cars collection. When he buys a new car he will add it again in the application. Application should store all the data in database(any database can be used).  
+		Featues expected. 
+			Mr Bean should be able to 
+				See list of all the cars 
+				Search cars based on 
+						model 
+						or year of purchase 
+						or color 
+						or price-range 
+				Add a car
+				Update a car 
+				Delete a car 
+				
+			The car will have following attributes 
+				Company
+				Model
+				Color 
+				Date of purchase 
+				Price 
+				Engine Capacity 
+				Licence Plate Number
+				Seating Capacity 
+				
+			
+--------------------------------------------------
+Notes: 
+	You can use any technology to implement above requriement. 
+	You are free to use any database for storing the data. 
+	
+Expectation: 
+	You should upload the code on Git-hub and share the link to ITO.
+	ITO will review the code and select the candidates for next round whose code meets the requirement. 
+	After code-submission, if selected,  you have to demo the applicaiton to ITO (Date and time will be informed by HR). It will be treated as demo cum technical interview. 
+	Candidate should be able to make slight changes in the application based on Interviewer's request. 
+	
+	
